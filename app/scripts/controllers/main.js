@@ -32,4 +32,10 @@ angular.module('movieManiaApp')
       'AngularJS',
       'Karma'
     ];
-  });
+  })
+  .controller('SubCtrl', function($scope) {
+    $scope.title = 'Available to watch: ' + $scope.movies.length + ' movies';
+  })
+  .controller('FormCtrl', function($scope) {
+    console.log('We have a form controller');
+  })
