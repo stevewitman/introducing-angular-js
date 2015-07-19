@@ -44,12 +44,15 @@
               <li><a ng-href="#/">Contact</a></li>
             </ul>
           </div>
-          <div ng-controller="MainCtrl">
-            <h1>{{movie.title}}</h1>
-            <div ng-bind="movie.description"></div>
-          </div>
-
         </div>
+      </div>
+    </div>
+
+    <div ng-controller="MainCtrl">
+      <div ng-repeat="movie in movies" style="float: left;">
+        <h3 ng-bind="movie.title"></h3>
+        <img src="{{movie.image}}" style="float: left;">
+        <div ng-bind="movie.description"></div>
       </div>
     </div>
 
