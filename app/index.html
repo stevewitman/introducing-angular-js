@@ -27,7 +27,7 @@
       <div class="col-xs-8">
         <h2>Movies</h2>
         <div ng-repeat="movie in movies" style="clear: both;">
-          <img src="{{movie.image}}" style="float: left; width: 80px; margin-right: 10px;">
+          <img ng-src="{{movie.image}}" style="float: left; width: 80px; margin-right: 10px;">
           <h3 ng-bind="movie.title"></h3>
           <p style="font-size: 0.8em; font-style: italic;" ng-bind="movie.category"></p>
           <p ng-bind="movie.description"></p>
@@ -39,7 +39,7 @@
           <label>Title</label>
           <input class="form-control" ng-keyup="validateTitle()" placeholder="Enter title" ng-model="newMovieTitle">
         </div>
-        <div class="form-group"> 
+        <div class="form-group">
           <label>Image</label>
           <input class="form-control" placeholder="Image" ng-model="newMovieImage">
           <div>
@@ -49,16 +49,16 @@
         </div>
         <div class="form-group">
           <label>Category</label>
-          <select class="form-control" ng-change="checkCategorySelected" ng-model="newMovieCategory">
+          <select class="form-control" ng-change="checkCategorySelected()" ng-model="newMovieCategory">
             <option value="">-</option>
             <option value="Epic">Epic</option>
-            <option value="Awesome">Epic</option>
+            <option value="Awesome">Awesome</option>
             <option value="Average">Average</option>
           </select>
         </div>
         <div class="form-group">
           <label>Description</label>
-          <textarea class="form-control" on-blur="checkDescription()" ng-model="newMovieDescription"></textarea>
+          <textarea class="form-control" ng-blur="checkDescription()" ng-model="newMovieDescription"></textarea>
         </div>
         <button class="btn btn-info" ng-click="addMovie()">Add</button>
       </div>

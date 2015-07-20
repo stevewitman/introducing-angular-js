@@ -31,4 +31,40 @@ myApp.controller('MainCtrl', function ($scope) {
     }
   ];
   $scope.movies = movieList;
+
+  $scope.newMovieTitle = '';
+  $scope.newMovieDescription = '';
+  $scope.newMovieImage = 'https://www.digitalprolab.com/products/video/images/Movie-Reel-hero.jpg';
+
+  $scope.validateTitle = function() {
+    if($scope.newMovieTitle.length > 0) {
+      console.debug($scope.newMovieTitle);
+    } else {
+      window.alert('Title is required');
+    }
+  };
+
+  $scope.addMovie = function() {
+    var movie = {
+      title: $scope.newMovieTitle,
+      category: $scope.newMovieCategory,
+      image: $scope.newMovieImage,
+      description: $scope.newMovieDescription
+    };
+    $scope.movies.push(movie);
+  };
+
+  $scope.checkCategorySelected = function() {
+    if($scope.newMovieCategory === '') {
+      window.alert('Category cannot be empty');
+    }
+  };
+
+  $scope.checkDescription = function() {
+    console.debug($scope.newMovieDescription);
+  };
+
+
+
+
 });
