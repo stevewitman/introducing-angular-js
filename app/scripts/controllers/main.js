@@ -30,6 +30,9 @@ myApp.controller('MainCtrl', function ($scope) {
       'category': "Awesome"
     }
   ];
+
+  $scope.closed = false;
+
   $scope.movies = movieList;
 
   $scope.movie = {
@@ -37,6 +40,19 @@ myApp.controller('MainCtrl', function ($scope) {
     image: 'https://www.digitalprolab.com/products/video/images/Movie-Reel-hero.jpg',
     description: ''
   };
+
+  $scope.isValid = function() {
+    if($scope.movie.title === '') {
+      return false;
+    }
+    if($scope.movie.description === '') {
+      return false;
+    }
+    if($scope.movie.category === '') {
+      return false;
+    }
+    return true;
+  }
 
   $scope.validateTitle = function() {
     if($scope.movie.title.length > 0) {
