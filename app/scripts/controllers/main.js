@@ -32,26 +32,22 @@ myApp.controller('MainCtrl', function ($scope) {
   ];
   $scope.movies = movieList;
 
-  $scope.newMovieTitle = '';
-  $scope.newMovieDescription = '';
-  $scope.newMovieImage = 'https://www.digitalprolab.com/products/video/images/Movie-Reel-hero.jpg';
+  $scope.movie = {
+    title: '',
+    image: 'https://www.digitalprolab.com/products/video/images/Movie-Reel-hero.jpg',
+    description: ''
+  };
 
   $scope.validateTitle = function() {
-    if($scope.newMovieTitle.length > 0) {
-      console.debug($scope.newMovieTitle);
+    if($scope.movie.title.length > 0) {
+      console.debug($scope.movie.title);
     } else {
       window.alert('Title is required');
     }
   };
 
   $scope.addMovie = function() {
-    var movie = {
-      title: $scope.newMovieTitle,
-      category: $scope.newMovieCategory,
-      image: $scope.newMovieImage,
-      description: $scope.newMovieDescription
-    };
-    $scope.movies.push(movie);
+    $scope.movies.push(angular.copy($scope.movie));
   };
 
   $scope.checkCategorySelected = function() {
